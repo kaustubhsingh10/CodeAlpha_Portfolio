@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <script src="https://kit.fontawesome.com/5c1880e26a.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+     <div id="header">
+        <div class="container">
+            <nav>
+                <h1 class="logo">PORTFOLIO</h1>
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <h1>HI I'm <span>KAUSTUBH</span></h1>
+            <p>I'm a <span>Web Developer</span></p>
+        </div>
+        </div>
+     </div>
+     <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about col1">
+                    
+                </div>
+                <div class="about col2">
+                    <h1 class="subtitle">About Me</h1>
+                    <p>Passionate web developer with a strong foundation
+in front-end technologies.I specialize in building
+responsive,user friendly websites having real world 
+applications.Committed to writing clean,maintainable
+code and continuously improving my skill set in the 
+fast paced world of web-development.</p>
+<div class="tab-titles">
+    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+    <p class="tab-links " onclick="opentab('experience')">Experience</p>
+    <p class="tab-links " onclick="opentab('education')">Education</p>
+</div>
+<div class="tab-contents active-tab" id="skills">
+    <ul>
+        <li><span>Web Development</span><br>HTML,CSS,JavaScript, Frontend & Backend</li>
+        <li><span>Problem Solving</span><br>Expertise in C++</li>
+
+
+    </ul>
+</div>
+<div class="tab-contents" id="experience">
+    <ul>
+        <li><span>Internship</span><br>CodeAlpha Frontend Development</li>
+
+
+    </ul>
+</div>
+<div class="tab-contents" id="education">
+    <ul>
+        <li><span>2024-Present</span><br>AKGEC Ghaziabad</li>
+        <li><span>2008-2022</span><br>S.J.S Public School,Lalganj</li>
+
+
+    </ul>
+</div>
+                </div>
+</div>
+        </div>
+     </div>
+    <!-- -------------------services---------------- -->
+     <div id="services">
+        <div class="container">
+            <h1 class="subtitle">My Services</h1>
+            <div class="services-list">
+               <div>
+                <h2><i class="fa-solid fa-code"></i></h2>
+                <h1>Web Design</h1>
+                <p>I specialize in creating visually engaging, user-friendly websites that are tailored to meet your business goals and provide an exceptional experience for your visitors. Whether you're building a new site from scratch or refreshing an existing one, I combine creative design with strategic thinking to deliver results</p>
+                <a href="#">Learn More</a>
+               </div> 
+            </div>
+        </div>
+     </div>
+     <!-- ----------------contacts----------------- -->
+      <div id="contacts">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                  <h1 class="subtitle">Contact Me</h1>  
+                  <p><i class="fa-solid fa-paper-plane"></i>kaustubhchauhan541@gmail.com</p>
+                  <p><i class="fa-solid fa-phone"></i>9257847533</p>
+                  <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/kaustubh-singh-4731a532a"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/kaustubh_chauhan_17?igsh=bDNoMjVwaG85dTF0"><i class="fa-brands fa-square-instagram"></i>
+</a>
+                  </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright &#169 Kaustubh Singh 2025</p>
+        </div>
+      </div>
+      
+     <script>
+        var tablinks = document.getElementsByClassName("tab-links")
+        var tabcontents = document.getElementsByClassName("tab-contents")
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+     </script>
+     <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzgUfDBXU4nzOBqkLVF4322MfhGXgdh9o1XCpYewP_591QK-I6omEMTBY-NkIKoOKMaPg/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg= document.getElementById("msg")
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message Sent"
+        setTimeout (function(){
+            msg.innerHTML = ""
+        },5000 )
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
